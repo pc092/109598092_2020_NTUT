@@ -29,15 +29,11 @@ public class LogicSimulator
         BufferedReader br = new BufferedReader(fr);
         String fileString = null;
         int inputPinNumber, gateNumber;
-        Vector<String>  fileLine = new Vector<>();
 
         while (br.ready()) {
 
             inputPinNumber = Integer.parseInt(br.readLine());
             gateNumber = Integer.parseInt(br.readLine());
-
-            System.out.println(inputPinNumber);
-            System.out.println(gateNumber);
 
             createIPinsAndGate(inputPinNumber, gateNumber);
 
@@ -51,10 +47,8 @@ public class LogicSimulator
                 }else if(splitData[0].equals("3")){
                     circuits.add(new GateNOT());
                 }else {
-
+                    System.out.println("wrong data");
                 }
-
-                System.out.println("size="+circuits.size());
 
                 for(int i=1; i < splitData.length; i++){
                     if(splitData[i].startsWith("-")){
@@ -113,7 +107,6 @@ public class LogicSimulator
     }
 
     public String getTruthTable(){
-        int inputPinNumber = 3;
         StringBuilder res = new StringBuilder();
         res.append("Truth table:\n");
         for(int i=0; i<iPins.size(); i++){
@@ -128,7 +121,18 @@ public class LogicSimulator
             res.append("--");
         }
         res.append("+--\n");
-        
+
+        for(int i=0; i<=Math.pow(2,iPins.size()) - 1; i++){
+            String byteNumber = Integer.toBinaryString(i);
+            while (byteNumber.length() < iPins.size()){
+                byteNumber = "0" + byteNumber;
+            }
+            for(int j=0; j<byteNumber.length(); j++){
+                res.append(byteNumber.substring(j,j+1) + " ");
+            }
+            res.append("|"+ "\n");
+        }
+
 
         return  res.toString();
     }

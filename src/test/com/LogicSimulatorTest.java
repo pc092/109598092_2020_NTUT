@@ -56,5 +56,6 @@ public class LogicSimulatorTest {
                 "1 1 0 | 0\n" +
                 "1 1 1 | 0\n", logicSimulator.getTruthTable());
     }
+
 }
 
