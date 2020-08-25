@@ -4,7 +4,14 @@ import java.util.Vector;
 
 public class Device{
 
-    protected Vector<Device> iPins = new Vector<>();
+    //protected Vector<Device> iPins = new Vector<>();
+
+    protected Vector<Device> iPins;
+
+    public Device()
+    {
+        iPins = new Vector<>();
+    }
 
     public void addInputPin(Device iPin)
     {
