@@ -6,7 +6,7 @@ public class GateAND extends Device {
     public boolean getOutput()
     {
         boolean ouputValue = this.iPins.get(0).getOutput();
-        for(int i=0; i<iPins.size(); i++){
+        for(int i=0; i<this.iPins.size(); i++){
             ouputValue = ouputValue & this.iPins.get(i).getOutput();
         }
         return ouputValue;

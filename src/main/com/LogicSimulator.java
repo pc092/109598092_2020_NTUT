@@ -28,7 +28,7 @@ public class LogicSimulator
         FileReader fr = new FileReader(file1Path);
         BufferedReader br = new BufferedReader(fr);
         String fileString = null;
-        int inputPinNumber, gateNumber;
+        int inputPinNumber, gateNumber = 0;
 
         while (br.ready()) {
 
@@ -62,9 +62,12 @@ public class LogicSimulator
                         break;
                     }
                 }
+
+
             }
         }
         fr.close();
+
     }
 
     private void createIPinsAndGate(int inputPinNumber, int gateNumber){
@@ -73,7 +76,6 @@ public class LogicSimulator
         }
         for(int i=0 ; i<gateNumber ; i++){
             this.oPins.add(new OPin());
-            //this.oPinUsedTimes.add(0);
         }
     }
 
@@ -100,8 +102,7 @@ public class LogicSimulator
             res.append(" ");
         }
         res.append("| ");
-        res.append("0\n");
-        //res.append(oPins.get(0).getOutput()+" ");
+        //res.append(circuits.get(0).getOutput()+" ");
 
         return res.toString();
     }
@@ -136,5 +137,4 @@ public class LogicSimulator
 
         return  res.toString();
     }
-    // complete this class by yourself
 }
